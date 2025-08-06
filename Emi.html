@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Emilio 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #ffe6f0, #e0f7fa);
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2em;
+      color: #d6336c;
+      margin-bottom: 30px;
+    }
+
+    #frase {
+      font-size: 1.5em;
+      max-width: 90%;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: all 0.5s ease-in-out;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #d6336c;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Para ti, Emilio 💌</h1>
+  <div id="frase">Presiona el botón para comenzar</div>
+  <button onclick="iniciar()">💗 Empezar</button>
+
+  <!-- Música de fondo -->
+  <audio id="bgMusic" loop>
+    <source src="https://dl.dropboxusercontent.com/scl/fi/y7chvj09z6qxxkm3gyxct/iris.mp3?rlkey=kuhe47kjx7kbj2t3zq6oxmftu&dl=0" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
+  <script>
+    const frases = [
+      "Hola Emilio 💗",
+      "Solo quería decirte algunas cosas bonitas...",
+      "Desde que llegaste, todo cambió un poquito en mí.",
+      "Tu risa, tus mensajes, tu forma de ser...",
+      "No hace falta que digas mucho para hacerme sonreír.",
+      "Tienes algo que me calma, aunque no lo sepas.",
+      "A veces pienso en ti sin darme cuenta...",
+      "Y cuando me doy cuenta, sonrío.",
+      "Gracias por existir a tu manera",
+      "No eres perfecto, pero sí para mí.",
+      "Me haces bien.💞",
+      "Te quiero, niño bonito",
+      "Besoos"
+    ];
+
+    let index = 0;
+    const fraseElement = document.getElementById("frase");
+    const bgMusic = document.getElementById("bgMusic");
+
+    function mostrarFrase() {
+      fraseElement.textContent = frases[index];
+      index++;
+      if (index < frases.length) {
+        setTimeout(mostrarFrase, 4000);
+      }
+    }
+
+    function iniciar() {
+      bgMusic.play();
+      mostrarFrase();
+      document.querySelector("button").style.display = "none";
+    }
+  </script>
+</body>
+</html>
